@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add @types/core @types@/helmet @types/morgan
+  /usr/local/bin/node /usr/local/bin/yarn add graphql-tools merge-graphel-schemas
 
 PATH: 
   /Users/ArtistJD/.npm-global/bin:/Users/ArtistJD/.npm-global/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/ArtistJD/.npm-global/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fcore: Not found
+  Error: https://registry.yarnpkg.com/merge-graphel-schemas: Not found
       at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:64202:18)
       at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:137468:22)
       at Request.emit (events.js:182:13)
