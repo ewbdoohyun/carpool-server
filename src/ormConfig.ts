@@ -1,6 +1,6 @@
 import { ConnectionOptions } from "typeorm"
 
-const defaultConnectionOptions:ConnectionOptions = {
+const connectionOptions:ConnectionOptions = {
     type: "postgres",
     database: "nuber",
     synchronize: true,
@@ -9,9 +9,10 @@ const defaultConnectionOptions:ConnectionOptions = {
     host: process.env.DB_ENDPOINT || "localhost",
     port: 5432,
     username: process.env.DB_USERNAME || "danny",
-    password: process.env.DB_PASSWORD || ""
+    password: process.env.DB_PASSWORD || "1234"
 }
 
-export default defaultConnectionOptions;
+
+export default connectionOptions;
 
 // psql -U postgres -h localhost -W
