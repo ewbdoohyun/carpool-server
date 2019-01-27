@@ -1,5 +1,5 @@
 import { ConnectionOptions } from "typeorm"
-console.log(process.env.DB_ENDPOINT);
+// console.log(process.env);
 
 
 const connectionOptions:ConnectionOptions = {
@@ -8,9 +8,9 @@ const connectionOptions:ConnectionOptions = {
     synchronize: true,
     logging: true,
     entities: ["entities/*.*"],
-    host: process.env.DB_ENDPOINT ,
+    host: process.env.DB_ENDPOINT,
     port: 5433,
-    username: process.env.DB_USERNAME ,
+    username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD 
 }
 
