@@ -1,4 +1,6 @@
 import { ConnectionOptions } from "typeorm"
+console.log(process.env.DB_ENDPOINT);
+
 
 const connectionOptions:ConnectionOptions = {
     type: "postgres",
@@ -6,10 +8,10 @@ const connectionOptions:ConnectionOptions = {
     synchronize: true,
     logging: true,
     entities: ["entities/*.*"],
-    host: process.env.DB_ENDPOINT || "localhost",
-    port: 5432,
-    username: process.env.DB_USERNAME || "danny",
-    password: process.env.DB_PASSWORD || "1234"
+    host: process.env.DB_ENDPOINT ,
+    port: 5433,
+    username: process.env.DB_USERNAME ,
+    password: process.env.DB_PASSWORD 
 }
 
 
