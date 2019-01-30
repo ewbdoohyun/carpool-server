@@ -3,9 +3,13 @@ import {
     Column, 
     Entity, 
     PrimaryGeneratedColumn, 
-    CreateDateColumn
+    CreateDateColumn,
+    BeforeInsert
 } from "typeorm";
 import { verificationTarget } from "src/types/types";
+
+const PHONE = "PHONE";
+const EMAIL = "EMAIL";
 
 @Entity()
 class Verification extends BaseEntity{
@@ -24,6 +28,17 @@ class Verification extends BaseEntity{
 
     @CreateDateColumn() createdAt: string;
     @CreateDateColumn() updatedAt: string;
+
+    @BeforeInsert()
+    createKey(): void{
+        if(this.target === PHONE){
+            this.key = Math.floor(Math.random() * 10000).toString();
+        }else if(this.target === EMAIL){
+            this.key = Math.random()
+            .toString(36)
+            .substr(2);
+        }
+    }
 }
 
 
