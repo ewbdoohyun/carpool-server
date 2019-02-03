@@ -9,7 +9,7 @@ type Chat {
 type Message {
   id: Int!
   text: String!
-  chat: Message
+  chat: Chat!
   user: User!
   createdAt: String!
   updatedAt: String
@@ -23,7 +23,7 @@ type Place {
   address: String!
   isFav: Boolean!
   createdAt: String!
-  UpdatedAt: String
+  updatedAt: String
 }
 
 type Ride {
