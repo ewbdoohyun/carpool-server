@@ -1,20 +1,27 @@
-import { Resolvers } from "../../../types/resolvers";
-import { CompletePhoneVerificationMutationArgs, CompletePhoneVerificationResponse } from "../../../types/graph";
-import Verification from "../../../entities/Verification";
 import User from "../../../entities/User";
+import { 
+    CompletePhoneVerificationMutationArgs, 
+    CompletePhoneVerificationResponse 
+} from "../../../types/graph";
+import Verification from "../../../entities/Verification";
+import { Resolvers } from "../../../types/resolvers";
+import createJWT from "../../../utils/createJWT";
 
 
 const resolvers: Resolvers = {
     Mutation: {
-        CompletePhoneVerification: async(_, args: CompletePhoneVerificationMutationArgs):
-        Promise<CompletePhoneVerificationResponse> => {
+        CompletePhoneVerification: async(
+            _, 
+            args: CompletePhoneVerificationMutationArgs
+            ): Promise<CompletePhoneVerificationResponse> => {
+                console.log("asddd");
             const { phoneNumber, key } = args;
             try{
                 const verification = await Verification.findOne({
                     payload: phoneNumber,
                     key
                 });
-                if( ! verification){
+                if( !verification ){
                     return{
                         ok: false,
                         error: "Verification token not valid",
@@ -29,7 +36,7 @@ const resolvers: Resolvers = {
                     ok: false,
                     error: error.message,
                     token: null
-                }
+                };
             }
 
             try{
@@ -37,10 +44,11 @@ const resolvers: Resolvers = {
                 if(user){
                     user.verifiedPhoneNumber   = true;
                     user.save();
+                    const token = createJWT(user.id);
                     return {
                         ok: true,
                         error: null,
-                        token: "Comming soon"
+                        token
                     }
                 }else{
                     return{
@@ -50,6 +58,12 @@ const resolvers: Resolvers = {
                     }
                 }
                 
+            }catch(error){
+                return{
+                    ok: false,
+                    error: error.message,
+                    token: null
+                }
             }
         }
     }
