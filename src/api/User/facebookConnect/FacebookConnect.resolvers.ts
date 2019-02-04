@@ -7,6 +7,7 @@ import { Resolvers } from "../../../types/resolvers";
 import createJWT from "../../../utils/createJWT";
 
 const resolvers: Resolvers = {
+
   Mutation: {
     FacebookConnect: async (
       _,

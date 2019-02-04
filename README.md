@@ -16,7 +16,7 @@
 ## Authentication :
 
 - [x] Generate JMT
-- [ ] Verify JMT
+- [x] Verify JMT
 
 ### Private Resolvers;
 
