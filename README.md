@@ -20,9 +20,9 @@
 
 ### Private Resolvers;
 
-
-- [ ] Verify Email
 - [x] Get my Profile
+- [ ] Request Email Verification
+- [ ] Complete Email Verification
 - [ ] Update my Profile
 - [ ] Toggle Driving Mode
 - [ ] Report Location / Orientation
