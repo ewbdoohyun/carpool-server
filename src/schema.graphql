@@ -50,7 +50,7 @@ type CompleteEmailVerificationResponse {
 }
 
 type Mutation {
-  CompleteEmailVerification(key: String): CompleteEmailVerificationResponse!
+  CompleteEmailVerification(key: String!): CompleteEmailVerificationResponse!
   CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
   EmailSignUp(firstName: String!, lastName: String!, email: String!, password: String!, profilePhoto: String!, age: Int!, phoneNumber: String!): EmailSignUpResponse!
