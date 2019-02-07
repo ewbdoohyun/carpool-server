@@ -1,12 +1,12 @@
 import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/privateResolvers";
-import { UpdateMyPrifileMutationArgs } from "../../../types/graph";
+import { UpdateMyProfileMutationArgs } from "../../../types/graph";
 import User from "../../../entities/User";
 import cleanNullArgs from "../../../utils/cleanNullArgs";
 
 const resolvers: Resolvers = {
   Mutation: {
-    UpdateMyProfile: privateResolver(async(_,args: UpdateMyPrifileMutationArgs, {req} )=> {
+    UpdateMyProfile: privateResolver(async(_,args: UpdateMyProfileMutationArgs, {req} )=> {
       const user: User = req.user;
       const notNull:any = cleanNullArgs(args); // 👈
 

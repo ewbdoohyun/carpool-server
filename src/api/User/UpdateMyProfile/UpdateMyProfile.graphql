@@ -1,4 +1,4 @@
-type UpdateMyPrifileResponse{
+type UpdateMyProfileResponse{
   ok: Boolean!
   error: String
 }
@@ -9,5 +9,5 @@ type Mutation{
     email: String
     password: String
     profilePhoto: String
-    age: Int): UpdateMyPrifileResponse!
+    age: Int): UpdateMyProfileResponse!
 }
