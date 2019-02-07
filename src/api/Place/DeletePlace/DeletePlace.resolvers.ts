@@ -1,7 +1,7 @@
 import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/privateResolvers";
 import User from "../../../entities/User";
-import { DeletePaceMutationArgs, DeletePlaceResponse } from "../../../types/graph";
+import { DeletePlaceMutationArgs, DeletePlaceResponse } from "../../../types/graph";
 import Place from "../../../entities/Place";
 
 const resolvers: Resolvers = {
@@ -9,7 +9,7 @@ const resolvers: Resolvers = {
     DeletePlace: privateResolver(
       async(
         _, 
-        args: DeletePaceMutationArgs, 
+        args: DeletePlaceMutationArgs, 
         {req}
         ) : Promise<DeletePlaceResponse> => {
       const user: User = req.user;

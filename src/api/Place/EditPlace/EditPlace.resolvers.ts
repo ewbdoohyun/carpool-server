@@ -6,7 +6,7 @@ import Place from "../../../entities/Place";
 import cleanNullArgs from "../../../utils/cleanNullArgs";
 
 const resolvers: Resolvers = {
-  Muataion: {
+  Mutation: {
     EditPlace: privateResolver(
       async(
         _, 
