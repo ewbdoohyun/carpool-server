@@ -55,7 +55,6 @@ type GetMyPlacesResponse {
 type Query {
   GetMyPlaces: GetMyPlacesResponse!
   GetMyProfile: GetMyProfileResponse!
-  user: User
 }
 
 type Place {
@@ -65,6 +64,7 @@ type Place {
   lng: Float!
   address: String!
   isFav: Boolean!
+  userId: Int!
   user: User!
   createdAt: String!
   updatedAt: String

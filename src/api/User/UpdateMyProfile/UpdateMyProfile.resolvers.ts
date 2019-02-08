@@ -16,6 +16,9 @@ const resolvers: Resolvers = {
         delete notNull.password;
       }
       try{
+        console.log("Here teacher");
+        console.log(user);
+        console.log(notNull);
         await User.update({id: user.id},{...notNull});
         // if(args.password !== null){
         //   user.password = args.password;
