@@ -1,5 +1,5 @@
 import { Resolvers } from "../../../types/resolvers";
-import privateResolver from "../../../utils/privateResolvers";
+import privateResolver from "../../../utils/privateResolver";
 import User from "../../../entities/User";
 import Place from "../../../entities/Place";
 import { AddPlaceMutationArgs, AddPlaceResponse } from "../../../types/graph";
@@ -28,5 +28,6 @@ const resolvers: Resolvers = {
     })
   }
 }
+
 
 export default resolvers;

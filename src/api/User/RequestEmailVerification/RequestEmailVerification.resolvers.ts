@@ -1,5 +1,5 @@
 import { Resolvers } from "../../../types/resolvers";
-import privateResolver from "../../../utils/privateResolvers";
+import privateResolver from "../../../utils/privateResolver";
 import Verification from "../../../entities/Verification";
 import User from "../../../entities/User";
 import { sendVerificationEmail } from "../../../utils/sendEmail";

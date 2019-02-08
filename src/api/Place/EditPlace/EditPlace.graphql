@@ -3,6 +3,6 @@ type EditPlaceResponse {
   error: String
 }
 
-type Mutation{
-  EditPlace(placeId: Int!,name: String, isFav: Boolean): EditPlaceResponse!
+type Mutation {
+  EditPlace(placeId: Int!, name: String, isFav: Boolean): EditPlaceResponse!
 }
