@@ -1,7 +1,9 @@
 import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/privateResolver";
 import User from "../../../entities/User";
-import { ReportMovementResponse, ReportMovementMutationArgs } from "../../../types/graph";
+import { 
+  ReportMovementResponse, 
+  ReportMovementMutationArgs } from "../../../types/graph";
 import cleanNullArgs from "../../../utils/cleanNullArg";
 
 const resolvers: Resolvers = {
@@ -12,9 +14,14 @@ const resolvers: Resolvers = {
         args: ReportMovementMutationArgs,
         {req, pubSub}
         ): Promise<ReportMovementResponse> => {
+          // console.log("HHere0");
+          // console.log(req);
           const user: User = req.user;
+          // console.log("HHere");
+          // console.log(user);
           const notNull = cleanNullArgs(args);
           try{
+            // console.log(pubSub);
             await User.update({id: user.id}, {...notNull});
             pubSub.publish("driverUpdate",{DriversSubscription: user});//payload
             return {
