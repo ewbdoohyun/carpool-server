@@ -14,12 +14,16 @@ const resolvers: Resolvers = {
         args: ReportMovementMutationArgs,
         {req, pubSub}
         ): Promise<ReportMovementResponse> => {
-          // console.log("HHere0");
-          // console.log(req);
           const user: User = req.user;
-          // console.log("HHere");
-          // console.log(user);
-          const notNull = cleanNullArgs(args);
+          if(args["lat"]){
+            args["lastLat"] = args["lat"];
+            args["lat"] = null;              
+          }
+          if(args["lng"]){
+            args["lastLng"] = args["lng"];
+            args["lng"] = null;  
+          }
+          var notNull = cleanNullArgs(args);
           try{
             // console.log(pubSub);
             await User.update({id: user.id}, {...notNull});
