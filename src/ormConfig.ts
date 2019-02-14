@@ -1,6 +1,4 @@
 import { ConnectionOptions } from "typeorm"
-// console.log(process.env);
-
 
 const connectionOptions:ConnectionOptions = {
     type: "postgres",

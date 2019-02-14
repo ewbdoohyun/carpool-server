@@ -17,14 +17,7 @@ const resolvers = {
             driverLastLat <= userLastLat + 0.05 &&
             driverLastLng <= userLastLng + 0.05 &&
             driverLastLng <= userLastLng + 0.05          
-          )
-
-        // console.log(
-        //   `This is coming from the ReportMovemnet Resolver`,
-        //   payload
-        // );
-        // console.log(`Listening`,context);
-        return false;
+          );
         }
       )
     }

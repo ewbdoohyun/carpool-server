@@ -25,7 +25,6 @@ const resolvers: Resolvers = {
           }
           var notNull = cleanNullArgs(args);
           try{
-            // console.log(pubSub);
             await User.update({id: user.id}, {...notNull});
             pubSub.publish("driverUpdate",{DriversSubscription: user});//payload
             return {
