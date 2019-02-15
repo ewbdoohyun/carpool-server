@@ -15,18 +15,16 @@ const resolvers: Resolvers = {
         {req, pubSub}
         ): Promise<ReportMovementResponse> => {
           const user: User = req.user;
-          if(args["lat"]){
-            args["lastLat"] = args["lat"];
-            args["lat"] = null;              
-          }
-          if(args["lng"]){
-            args["lastLng"] = args["lng"];
-            args["lng"] = null;  
+    
+          if(args["orientation"]){
+            args["lastOrientation"] = args["orientation"];
+            args["orientation"] = null;
           }
           var notNull = cleanNullArgs(args);
           try{
             await User.update({id: user.id}, {...notNull});
-            pubSub.publish("driverUpdate",{DriversSubscription: user});//payload
+            const updatedUser = await User.findOne({id: user.id});
+            pubSub.publish("driverUpdate",{DriversSubscription: updatedUser});//payload
             return {
               ok: true,
               error: null
