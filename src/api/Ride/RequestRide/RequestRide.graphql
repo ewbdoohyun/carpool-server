@@ -1,10 +1,10 @@
-type RequestRideResponse{
+type RequestRideResponse {
   ok: Boolean!
   error: String
   ride: Ride
 }
 
-type Mutation{
+type Mutation {
   RequestRide(
     pickUpAddress: String!
     pickUpLat: Float!
