@@ -20,7 +20,7 @@ const resolvers: Resolvers = {
         // user.save();  testing code
         if(!user.isRiding){
           try {
-            const ride = await Ride.create({ ...args, passenger: user }).save();
+            const ride: Ride = await Ride.create({ ...args, passenger: user }).save();
             pubSub.publish("rideRequest", { NearbyRideSubscription: ride});
             user.isRiding = true;
             user.save();
