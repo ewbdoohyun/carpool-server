@@ -9,13 +9,9 @@ const resolvers = {
       (payload, _, {context}) => {
         const user: User = context.currentUser;
         const {
-          NearbyRideSubscription: { 
-            pickUpLat, 
-            pickUpLng 
-          }
+          NearbyRideSubscription: { pickUpLat, pickUpLng }
         } = payload;
         const { lastLat: userLastLat, lastLng: userLastLng } = user;        
-        
         return(
           pickUpLat >= userLastLat - 0.05 &&
           pickUpLat <= userLastLat + 0.05 &&
