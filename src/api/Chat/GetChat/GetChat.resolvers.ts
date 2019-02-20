@@ -16,9 +16,12 @@ const resolvers: Resolvers = {
           // await User.update({id:1},{isRiding:false,isTaken:false});
 
           try{
-            const chat = await Chat.findOne({
-              id: args.chatId
-            });
+            const chat = await Chat.findOne(
+              {
+                id: args.chatId
+              },
+              { relations: ["messages"] }
+            );
             if(chat){
                 if(chat.passengerId === user.id || chat.driverId === user.id){
                   return{
