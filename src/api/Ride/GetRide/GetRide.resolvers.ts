@@ -13,14 +13,15 @@ const reolvers: Resolvers = {
         {req}
         ): Promise<GetRideResponse> => {
       const user: User = req.user;
+      // await Ride.delete({});
+      // // user.isRiding = false;
+      // // user.isTaken = false;
+      // // user.save();
       try{
         const ride = await Ride.findOne({
           id:args.rideId
         });
         if(ride){
-          // user.isRiding = false;
-          // user.save();
-          // ride.remove(); //testing code
           if(ride.passengerId === user.id || ride.driverId === user.id){
             return{
               ok:true,

@@ -29,9 +29,6 @@ const appOptions : Options = {
                 }
             }
             throw new Error("No JWT. Can't subscribe");
-            console.log("Token : ");
-            console.log(token);
-//            const user = await decodeJWT()
         }
     }
 };

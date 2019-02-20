@@ -13,7 +13,7 @@ const resolvers: Resolvers = {
         {req }
         ): Promise<GetChatResponse> => {
           const user: User = req.user;
-          await User.update({id:1},{isRiding:false,isTaken:false});
+          // await User.update({id:1},{isRiding:false,isTaken:false});
 
           try{
             const chat = await Chat.findOne({
