@@ -1,7 +1,7 @@
 import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/privateResolver";
 import User from "../../../entities/User";
-import { UpdateRideStatusMutationArgs, UpdateRideStatusRsponse } from "../../../types/graph";
+import { UpdateRideStatusMutationArgs, UpdateRideStatusResponse } from "../../../types/graph";
 import Ride from "../../../entities/Ride";
 import Chat from "../../../entities/Chat";
 
@@ -12,13 +12,13 @@ const resolvers: Resolvers = {
         _, 
         args: UpdateRideStatusMutationArgs, 
         {req, pubSub}
-      ) : Promise<UpdateRideStatusRsponse> => {
+      ) : Promise<UpdateRideStatusResponse> => {
       const user: User = req.user;
       if(user.isDriving){
         try{
           let ride : Ride | undefined;
           if(args.status === "ACCEPTED"){
-            const ride = await Ride.findOne({
+            ride = await Ride.findOne({
               id: args.rideId,
               status: "REQUESTING"
             }, {relations: ["passenger"]});    

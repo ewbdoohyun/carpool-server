@@ -1,4 +1,4 @@
-type UpdateRideStatusRsponse{
+type UpdateRideStatusResponse{
   ok: Boolean!
   error: String
   rideId: Int
@@ -16,5 +16,5 @@ type Mutation{
   UpdateRideStatus(
     rideId: Int!
     status: StatusOptions!
-  ) : UpdateRideStatusRsponse!
+  ) : UpdateRideStatusResponse!
 }
