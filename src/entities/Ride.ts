@@ -55,6 +55,7 @@ class Ride extends BaseEntity {
   passengerId: number;
 
   @ManyToOne(type => User, user => user.ridesAsPassenger)
+  @JoinColumn()
   passenger: User;
 
   @Column({nullable: true})
@@ -65,6 +66,7 @@ class Ride extends BaseEntity {
   chat: Chat;
 
   @ManyToOne(type => User, user => user.ridesAsDriver,{nullable: true})
+  @JoinColumn()
   driver: User;
 
   @Column({nullable: true})
