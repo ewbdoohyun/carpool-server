@@ -16,17 +16,17 @@ const reolvers: Resolvers = {
       try{
         const ride = await Ride.findOne({
           id:args.rideId
-        });
+        },{relations: ["passenger", "driver"]});
         if(ride){
           if(ride.passengerId === user.id || ride.driverId === user.id){
-            const driver = await User.findOne({id: ride.driverId});
-            if(driver){
-              ride.driver = driver;
-            }
-            const passenger = await User.findOne({id: ride.passengerId});
-            if(passenger){
-              ride.passenger = passenger;
-            }
+            // const driver = await User.findOne({id: ride.driverId});
+            // if(driver){
+            //   ride.driver = driver;
+            // } /////debug
+            // const passenger = await User.findOne({id: ride.passengerId});
+            // if(passenger){
+            //   ride.passenger = passenger;
+            // }
             
             return{
               ok:true,

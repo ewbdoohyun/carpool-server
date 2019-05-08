@@ -21,7 +21,7 @@ const resolvers: Resolvers = {
             ride = await Ride.findOne({
               id: args.rideId,
               status: "REQUESTING"
-            }, {relations: ["passenger"]});    
+            }, {relations: ["passenger", "driver"]});    
             if(ride){
               ride.driver = user;
               user.isTaken = true;
